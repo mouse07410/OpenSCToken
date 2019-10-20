@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -417,7 +417,6 @@
 					};
 					2F3883971CF46C6E00F114A7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 					};
 					2F3883AF1CF46C9D00F114A7 = {
@@ -433,7 +432,7 @@
 				};
 			};
 			buildConfigurationList = 2F3883931CF46C6E00F114A7 /* Build configuration list for PBXProject "OpenSCTokenApp" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -649,9 +648,13 @@
 		2F3883AA1CF46C6F00F114A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -660,9 +663,13 @@
 		2F3883AB1CF46C6F00F114A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -673,7 +680,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -684,7 +695,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
