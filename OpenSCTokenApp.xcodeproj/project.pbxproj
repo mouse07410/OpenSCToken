@@ -412,7 +412,6 @@
 				TargetAttributes = {
 					190605102189CA57005B78B2 = {
 						CreatedOnToolsVersion = 10.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 					};
 					2F3883971CF46C6E00F114A7 = {
@@ -421,7 +420,6 @@
 					};
 					2F3883AF1CF46C9D00F114A7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -556,6 +554,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
@@ -571,6 +570,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
@@ -679,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -694,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
