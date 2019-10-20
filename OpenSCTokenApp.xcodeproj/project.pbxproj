@@ -558,8 +558,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -574,8 +580,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -655,8 +667,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -670,8 +688,14 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Release;
 		};
@@ -686,8 +710,14 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -702,8 +732,14 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 			};
 			name = Release;
 		};
