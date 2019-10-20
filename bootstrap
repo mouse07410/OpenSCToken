@@ -24,6 +24,10 @@ if ! pkg-config libcrypto --atleast-version=1.0.1; then
 	fi
 	export OPENSSL_CFLAGS="`env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openssl pkg-config --static --cflags libcrypto`"
 	export OPENSSL_LIBS="`  env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openssl pkg-config --static --libs   libcrypto`"
+else
+    export OPENSSL_CFLAGS="`pkg-config --static --cflags libcrypto`"
+	export OPENSSL_LIBS="`pkg-config --static --libs libcrypto`"
+	export OPENSSL_LOCAL="false"
 fi
 
 if ! test -e $BUILDPATH/openpace/$PREFIX/lib/pkgconfig; then
@@ -49,6 +53,25 @@ if ! test -e configure; then
 	autoreconf -vis
 fi
 
-./configure --disable-shared --prefix=$PREFIX --sysconfdir=$RESOURCES --disable-pcsc  --enable-cryptotokenkit --disable-notify
-make
+echo "OPENSSL_LIBS: \"${OPENSSL_LIBS}\""
+echo "OPENSSL_CFLAGS: \"${OPENSSL_CFLAGS}\""
+
+LDLIBS="${OPENSSL_LIBS} ${LDLIBS}"
+CFLAGS="${OPENSSL_CFLAGS} ${CFLAGS}"
+./configure --disable-shared \
+            --prefix=$PREFIX \
+            --sysconfdir=$RESOURCES \
+            --disable-pcsc \
+            --enable-cryptotokenkit \
+            --disable-notify \
+            --enable-static \
+            --disable-assert \
+            --disable-silent-rules \
+            --enable-cvcdir=$PREFIX/etc/cvc \
+            --enable-x509dir=$PREFIX/etc/x509 \
+            --enable-openssl-secure-malloc=1048576 \
+            --disable-dependency-tracking
+
+make V=1
+
 cd ..
