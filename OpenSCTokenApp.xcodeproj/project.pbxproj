@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -412,17 +412,14 @@
 				TargetAttributes = {
 					190605102189CA57005B78B2 = {
 						CreatedOnToolsVersion = 10.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 					};
 					2F3883971CF46C6E00F114A7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 					};
 					2F3883AF1CF46C9D00F114A7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = GE9933KY56;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -433,7 +430,7 @@
 				};
 			};
 			buildConfigurationList = 2F3883931CF46C6E00F114A7 /* Build configuration list for PBXProject "OpenSCTokenApp" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -557,11 +554,18 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -572,11 +576,18 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -649,22 +660,42 @@
 		2F3883AA1CF46C6F00F114A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
 		2F3883AB1CF46C6F00F114A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Release;
 		};
@@ -672,10 +703,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -683,10 +725,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenSCToken/opensctoken.entitlements;
+				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCToken/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
+					$SRCROOT/build/openpace/lib/libeac.a,
+					/opt/local/lib/libcrypto.a,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 			};
 			name = Release;
 		};
