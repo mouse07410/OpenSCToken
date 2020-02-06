@@ -7,32 +7,58 @@ RESOURCES=/Applications/OpenSCTokenApp.app/Contents/PlugIns/OpenSCToken.appex/Co
 
 set -ex
 
-if ! pkg-config libcrypto --atleast-version=1.0.1; then
+export OBJC=clang
+export OBJCXX=clang++
+export CC=clang
+export CXX=clang++
+
+# Add pkg-config location for Macports-installed packages, like OpenSSL
+#if [ -e /opt/local/share/pkgconfig ]; then
+#    PKG_CONFIG_PATH=/opt/local/share/pkgconfig:${PKG_CONFIG_PATH}
+#fi
+#if [ -e /opt/local/lib/pkgconfig ]; then
+#    PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
+#fi
+
+echo "************************************"
+echo "Building OpenSCToken..."
+echo "BUILDPATH=${BUILDPATH}"
+echo "PKG_CONFIG_PATH=${PKG_CONFIG_PATH}"
+echo "PREFIX=${PREFIX}"
+echo "************************************"
+
+# Force building static OpenSSL from sources
+#if ! pkg-config libcrypto --atleast-version=1.0.1; then
 	# OpenSSL is not installed
+	echo "OpenSSL not installed - building one locally"
 	if ! test -e $BUILDPATH/openssl/$PREFIX/lib/pkgconfig; then
 		# Build OpenSSL manually, because Apple's binaries are deprecated
 		if ! test -e openssl; then
-			git clone --depth=1 https://github.com/openssl/openssl.git -b OpenSSL_1_0_2-stable
+			#git clone --depth=1 https://github.com/openssl/openssl.git -b OpenSSL_1_0_2-stable
+			git clone --depth=1 https://github.com/openssl/openssl.git -b OpenSSL_1_1_1-stable
 		fi
 		cd openssl
 		KERNEL_BITS=64 ./config --prefix=$PREFIX
 		make update
 		make depend
 		make
-		make INSTALL_PREFIX=$BUILDPATH/openssl install_sw
+		make INSTALL_PREFIX=$BUILDPATH/openssl PREFIX=$BUILDPATH/openssl DESTDIR=$BUILDPATH/openssl install_sw
 		cd ..
 	fi
 	export OPENSSL_CFLAGS="`env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openssl pkg-config --static --cflags libcrypto`"
 	export OPENSSL_LIBS="`  env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openssl pkg-config --static --libs   libcrypto`"
-else
-    export OPENSSL_CFLAGS="`pkg-config --static --cflags libcrypto`"
-	export OPENSSL_LIBS="`pkg-config --static --libs libcrypto`"
-	export OPENSSL_LOCAL="false"
-fi
+#else  
+#    # OpenSSL is installed - we'll use it instead of building one
+#   	export OPENSSL_CFLAGS="`pkg-config --static --cflags libcrypto`"
+#	export OPENSSL_LIBS="`pkg-config --static --libs   libcrypto`"
+#fi
+
+echo "OPENSSL_CFLAGS=${OPENSSL_CFLAGS}"
+echo "OPENSSL_LIBS=${OPENSSL_LIBS}"
 
 if ! test -e $BUILDPATH/openpace/$PREFIX/lib/pkgconfig; then
 	if ! test -e openpace; then
-		git clone --depth=1 https://github.com/frankmorgner/openpace.git
+		git clone --depth=1 https://github.com/mouse07410/openpace.git
 	fi
 	cd openpace
 	if ! test -e configure; then
@@ -46,32 +72,13 @@ export OPENPACE_CFLAGS="`env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgc
 export OPENPACE_LIBS="`  env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig:$BUILDPATH/openpace/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openpace pkg-config --static --libs   libeac` $OPENSSL_LIBS"
 
 if ! test -e OpenSC; then
-	git clone --depth=1 https://github.com/OpenSC/OpenSC.git
+	#git clone --depth=1 https://github.com/OpenSC/OpenSC.git
+	git clone --depth=1 https://github.com/mouse07410/OpenSC.git
 fi
 cd OpenSC
 if ! test -e configure; then
 	autoreconf -vis
 fi
-
-echo "OPENSSL_LIBS: \"${OPENSSL_LIBS}\""
-echo "OPENSSL_CFLAGS: \"${OPENSSL_CFLAGS}\""
-
-LDLIBS="${OPENSSL_LIBS} ${LDLIBS}"
-CFLAGS="${OPENSSL_CFLAGS} ${CFLAGS}"
-./configure --disable-shared \
-            --prefix=$PREFIX \
-            --sysconfdir=$RESOURCES \
-            --disable-pcsc \
-            --enable-cryptotokenkit \
-            --disable-notify \
-            --enable-static \
-            --disable-assert \
-            --disable-silent-rules \
-            --enable-cvcdir=$PREFIX/etc/cvc \
-            --enable-x509dir=$PREFIX/etc/x509 \
-            --enable-openssl-secure-malloc=1048576 \
-            --disable-dependency-tracking
-
-make V=1
-
+./configure --disable-shared --prefix=$PREFIX --sysconfdir=$RESOURCES --disable-pcsc  --enable-cryptotokenkit --disable-notify
+make
 cd ..
