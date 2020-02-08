@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./bootstrap
+./bootstrap
 
 # Build and copy OpenSCTokenApp
 xcodebuild -target OpenSCTokenApp -configuration Debug -project OpenSCTokenApp.xcodeproj install DSTROOT=${BUILDPATH}
