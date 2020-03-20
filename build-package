@@ -1,9 +1,11 @@
 #!/bin/bash
 
-./bootstrap
+. ./bootstrap
+
+SDKPATH="`xcrun --show-sdk-path`"
 
 # Build and copy OpenSCTokenApp
-xcodebuild -target OpenSCTokenApp -configuration Debug -project OpenSCTokenApp.xcodeproj install DSTROOT=${BUILDPATH}
+xcodebuild -sdk ${SDKPATH} -target OpenSCTokenApp -configuration Debug -project OpenSCTokenApp.xcodeproj install DSTROOT=${BUILDPATH}
 
 # Add link to Applications
 if ! test -e "${BUILDPATH}/Applications/Applications"; then
@@ -14,6 +16,9 @@ fi
   title="$(defaults read ${BUILDPATH}/Applications/OpenSCTokenApp.app/Contents/PlugIns/OpenSCToken.appex/Contents/Info CFBundleDisplayName)"
 version="$(defaults read ${BUILDPATH}/Applications/OpenSCTokenApp.app/Contents/PlugIns/OpenSCToken.appex/Contents/Info CFBundleShortVersionString)"
  opensc="$(cat OpenSC/win32/winconfig.h | perl -pe 'if(($v)=/([0-9]+([.][0-9]+)+)/){print"$v\n";exit}$_=""')"
+
+# Create OpenSCToken.pkg (package)
+pkgbuild --root ${BUILDPATH} --identifier org.opensc-project.mac.opensctoken --version 1.1.1 --install-location /Applications OpenSCToken.pkg
 
 # Create .dmg
 rm -f $name.dmg

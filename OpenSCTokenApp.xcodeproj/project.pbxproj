@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16F2F05423F648C700D7692A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3883B21CF46C9D00F114A7 /* Cocoa.framework */; };
+		16F2F05723F648CA00D7692A /* CryptoTokenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190605372189EE4E005B78B2 /* CryptoTokenKit.framework */; };
+		16F2F05923F648D100D7692A /* CryptoTokenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190605372189EE4E005B78B2 /* CryptoTokenKit.framework */; };
+		16F2F05A23F648D100D7692A /* CryptoTokenKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 190605372189EE4E005B78B2 /* CryptoTokenKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16F2F05C23F648D300D7692A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3883B21CF46C9D00F114A7 /* Cocoa.framework */; };
 		190605262189CC71005B78B2 /* pkcs11-global.c in Sources */ = {isa = PBXBuildFile; fileRef = 1906051A2189CC70005B78B2 /* pkcs11-global.c */; };
 		190605272189CC71005B78B2 /* pkcs11-display.c in Sources */ = {isa = PBXBuildFile; fileRef = 1906051B2189CC70005B78B2 /* pkcs11-display.c */; };
 		190605282189CC71005B78B2 /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 1906051C2189CC70005B78B2 /* misc.c */; };
@@ -18,10 +23,7 @@
 		1906052F2189CC71005B78B2 /* framework-pkcs15init.c in Sources */ = {isa = PBXBuildFile; fileRef = 190605232189CC71005B78B2 /* framework-pkcs15init.c */; };
 		190605302189CC71005B78B2 /* slot.c in Sources */ = {isa = PBXBuildFile; fileRef = 190605242189CC71005B78B2 /* slot.c */; };
 		190605312189CC71005B78B2 /* pkcs11-object.c in Sources */ = {isa = PBXBuildFile; fileRef = 190605252189CC71005B78B2 /* pkcs11-object.c */; };
-		190605352189ED7D005B78B2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3883B21CF46C9D00F114A7 /* Cocoa.framework */; };
 		190605362189ED8F005B78B2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FFFCD1FA7204B009E9DC4 /* libz.tbd */; };
-		190605382189EE4E005B78B2 /* CryptoTokenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190605372189EE4E005B78B2 /* CryptoTokenKit.framework */; };
-		190605392189EE57005B78B2 /* CryptoTokenKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190605372189EE4E005B78B2 /* CryptoTokenKit.framework */; };
 		190ED43A205ADA9B0090562B /* opensc.conf in Resources */ = {isa = PBXBuildFile; fileRef = 190ED439205ADA9B0090562B /* opensc.conf */; };
 		190ED43C205ADAB40090562B /* DESRCACC100001 in Resources */ = {isa = PBXBuildFile; fileRef = 190ED43B205ADAB40090562B /* DESRCACC100001 */; };
 		191FFFCE1FA7204B009E9DC4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FFFCD1FA7204B009E9DC4 /* libz.tbd */; };
@@ -50,7 +52,6 @@
 		2F3883A01CF46C6E00F114A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F38839F1CF46C6E00F114A7 /* main.m */; };
 		2F3883A21CF46C6E00F114A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3883A11CF46C6E00F114A7 /* Assets.xcassets */; };
 		2F3883A51CF46C6F00F114A7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3883A31CF46C6F00F114A7 /* MainMenu.xib */; };
-		2F3883B31CF46C9D00F114A7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3883B21CF46C9D00F114A7 /* Cocoa.framework */; };
 		2F3883B91CF46C9D00F114A7 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3883B81CF46C9D00F114A7 /* Token.m */; };
 		2F3883BB1CF46C9D00F114A7 /* TokenDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3883BA1CF46C9D00F114A7 /* TokenDriver.m */; };
 		2F3883BF1CF46C9D00F114A7 /* OpenSCToken.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2F3883B01CF46C9D00F114A7 /* OpenSCToken.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -82,6 +83,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		16F2F05B23F648D100D7692A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				16F2F05A23F648D100D7692A /* CryptoTokenKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19AEAC8E218A6854001B2CBF /* Embed OpenSC Tools */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,9 +202,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190605392189EE57005B78B2 /* CryptoTokenKit.framework in Frameworks */,
-				190605352189ED7D005B78B2 /* Cocoa.framework in Frameworks */,
+				16F2F05923F648D100D7692A /* CryptoTokenKit.framework in Frameworks */,
 				190605362189ED8F005B78B2 /* libz.tbd in Frameworks */,
+				16F2F05C23F648D300D7692A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +219,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190605382189EE4E005B78B2 /* CryptoTokenKit.framework in Frameworks */,
-				2F3883B31CF46C9D00F114A7 /* Cocoa.framework in Frameworks */,
 				191FFFCE1FA7204B009E9DC4 /* libz.tbd in Frameworks */,
+				16F2F05723F648CA00D7692A /* CryptoTokenKit.framework in Frameworks */,
+				16F2F05423F648C700D7692A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +364,7 @@
 				1906050D2189CA57005B78B2 /* Sources */,
 				1906050E2189CA57005B78B2 /* Frameworks */,
 				1906050F2189CA57005B78B2 /* Resources */,
+				16F2F05B23F648D100D7692A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -558,6 +571,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
@@ -565,7 +579,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -580,6 +593,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "opensc-pkcs11/Info.plist";
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
@@ -587,7 +601,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensc-pkcs11";
 				PRODUCT_NAME = "$(TARGET_NAME).dylib";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -667,6 +680,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
@@ -674,7 +688,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -688,6 +701,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
@@ -695,7 +709,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Release;
 		};
@@ -710,6 +723,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
@@ -717,7 +731,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.opensc-project.mac.opensctoken.OpenSCTokenApp.OpenSCToken";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /opt/local/include;
 			};
 			name = Debug;
 		};
@@ -732,6 +745,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
 					$SRCROOT/build/openpace/lib/libeac.a,
