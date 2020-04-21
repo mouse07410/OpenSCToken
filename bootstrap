@@ -67,6 +67,7 @@ if ! test -e $BUILDPATH/openpace/$PREFIX/lib/pkgconfig; then
 	touch src/cvc-create.1 src/cvc-print.1
 	make DESTDIR=$BUILDPATH/openpace install
 	cd ..
+fi
 	export OPENPACE_CFLAGS="`env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig:$BUILDPATH/openpace/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openpace pkg-config --static --cflags libeac` $OPENSSL_CFLAGS"
 	export OPENPACE_LIBS="`  env PKG_CONFIG_PATH=$BUILDPATH/openssl/$PREFIX/lib/pkgconfig:$BUILDPATH/openpace/$PREFIX/lib/pkgconfig PKG_CONFIG_SYSROOT_DIR=$BUILDPATH/openpace pkg-config --static --libs   libeac` $OPENSSL_LIBS"
 fi
