@@ -31,6 +31,7 @@ echo "************************************"
 #if ! pkg-config libcrypto --atleast-version=1.0.1; then
 	# OpenSSL is not installed
 	echo "OpenSSL not installed - building one locally"
+#if [ -z "$OPENSSL_CFLAGS" -a -z "$OPENSSL_LIBS" ] ; then
 	if ! test -e $BUILDPATH/openssl/$PREFIX/lib/pkgconfig; then
 		# Build OpenSSL manually, because Apple's binaries are deprecated
 		if ! test -e openssl; then
