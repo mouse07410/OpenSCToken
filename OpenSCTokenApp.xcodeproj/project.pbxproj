@@ -565,7 +565,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
@@ -587,7 +586,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/OpenSCToken/opensctoken.entitlements";
-				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 36P8NK7X52;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
@@ -614,6 +612,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = GE9933KY56;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -650,6 +649,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = GE9933KY56;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -675,11 +675,8 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
-				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Utilities";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
@@ -696,11 +693,8 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 36P8NK7X52;
 				INFOPLIST_FILE = OpenSCTokenApp/Info.plist;
-				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)/Utilities";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = (
 					$SRCROOT/OpenSC/src/libopensc/.libs/libopensc.a,
